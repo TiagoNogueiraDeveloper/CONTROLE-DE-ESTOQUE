@@ -27,7 +27,7 @@ Este é um projeto acadêmico desenvolvido em linguagem C para a disciplina de [
 
 ## 👥 Autores
 * **TIAGO BRANDÃO NOGUEIRA** - (https://github.com/TiagoNogueiraDeveloper)
-* **RENAN CESAR MICHELON** - (https://github.com/usuario-da-dupla)
+* **RENAN CESAR MICHELON** - (https://github.com/RenanMichelon)
 
 ## 🔧 Como Executar o Projeto
 
