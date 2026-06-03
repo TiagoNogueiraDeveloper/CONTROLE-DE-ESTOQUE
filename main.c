@@ -28,7 +28,7 @@ int main(){
     }
     else
     {
-        printf("Opção inválida. Por favor, escolha uma opção válida.\n"); // Exibe uma mensagem de erro se a opção escolhida for inválida
+        printf("Opcaoo invalida. Por favor, escolha uma opcao valida.\n"); // Exibe uma mensagem de erro se a opção escolhida for inválida
     }
     
     return 0;

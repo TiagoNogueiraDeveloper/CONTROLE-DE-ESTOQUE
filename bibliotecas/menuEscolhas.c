@@ -7,7 +7,7 @@ int menuGeral(){
     printf("2. Cadastro de Clientes\n");
     printf("3. Registro de Vendas\n");
     printf("0. Sair\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
     return opcao;
 }
@@ -22,7 +22,7 @@ int menuProdutos(){
     printf("6. Calcular Valor do Estoque\n");
     printf("7. Relatório de Estoque Baixo\n");
     printf("0. Voltar ao Menu Geral\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcaoProdutos);
     return opcaoProdutos;
 }
@@ -34,7 +34,7 @@ int menuClientes(){
     printf("2. Remover Cliente\n");
     printf("3. Listar Clientes\n");
     printf("0. Voltar ao Menu Geral\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcaoClientes);
     return opcaoClientes;
 }
@@ -45,7 +45,7 @@ int menuVendas(){
     printf("1. Registrar Venda\n");
     printf("2. Listar Vendas\n");
     printf("0. Voltar ao Menu Geral\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcaoVendas);
     return opcaoVendas;
 }
