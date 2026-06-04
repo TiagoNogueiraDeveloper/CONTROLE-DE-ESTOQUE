@@ -7,6 +7,7 @@
 // JUNHO DE 2026
 #include <stdio.h>
 #include "bibliotecas/menuEscolhas.c"
+#include "bibliotecas/clientes.c"
 
 int main(){
     int opcao = menuGeral(); // Chama o menu geral e armazena a opção escolhida pelo usuário
@@ -28,7 +29,7 @@ int main(){
     }
     else
     {
-        printf("Opcaoo invalida. Por favor, escolha uma opcao valida.\n"); // Exibe uma mensagem de erro se a opção escolhida for inválida
+        printf("Opcao invalida. Por favor, escolha uma opcao valida.\n"); // Exibe uma mensagem de erro se a opção escolhida for inválida
     }
     
     return 0;
