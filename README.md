@@ -34,4 +34,4 @@ Este é um projeto acadêmico desenvolvido em linguagem C para a disciplina de [
 1. Certifique-se de ter um compilador de C instalado (como o GCC).
 2. Clone este repositório no seu terminal:
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   git clone [https://github.com/TiagoNogueiraDeveloper/CONTROLE-DE-ESTOQUE.git](https://github.com/TiagoNogueiraDeveloper/CONTROLE-DE-ESTOQUE.git)
