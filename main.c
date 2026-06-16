@@ -8,12 +8,27 @@
 #include <stdio.h>
 #include "bibliotecas/menuEscolhas.c"
 #include "bibliotecas/clientes.c"
+struct Produtos 
+{
+    int id;
+    char nome[20];
+    int quantidadeInicialEstoque;
+    char sexo[1];
+    float preco;
+};
 
 int main(){
     int opcao = menuGeral(); // Chama o menu geral e armazena a opção escolhida pelo usuário
     if (opcao == 1)
     {
-        menuProdutos(); // Chama o menu de produtos se a opção escolhida for 1
+        if (menuProdutos() == 1) // Chama o menu de produtos se a opção escolhida for 1
+        {
+            incluirProduto(); // Chama a função para incluir um produto se a opção escolhida for 1 no menu de produtos
+        }
+        else if (menuProdutos() == 2)
+        {
+            excluirProduto(); // Chama a função para excluir um produto se a opção escolhida for 2 no menu de produtos
+        }
     }
     else if (opcao == 2)
     {
