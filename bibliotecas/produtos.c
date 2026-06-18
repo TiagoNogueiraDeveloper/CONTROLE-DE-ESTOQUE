@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define TAM 1
+#define TAM 100
+
 struct Produtos 
 {
     int id;
@@ -18,46 +19,60 @@ void limparBuffer() {
     }
 }       
 
-void incluirProduto(){
-
-    struct Produtos produtos[TAM];
-    for (int i = 0; i < TAM+1; i++)
-    {   
-        produtos[i].id = i+1;
-
-        limparBuffer(); // Chama a função para limpar o buffer antes de ler a string
-
-        printf("\nDigite o nome do produto: ");
-        fgets(produtos[i].nome, 20, stdin);
-
-        printf("\nDigite a quantidade inicial em estoque do produto: ");
-        scanf("%d", &produtos[i].quantidadeInicialEstoque);
-
-        limparBuffer(); // Chama a função para limpar o buffer antes de ler a string
-
-        printf("\nDigite o preco do produto: ");
-        scanf("%f", &produtos[i].preco);
+void incluirProduto(struct Produtos produtos[], int *qtdProdutos)
+{
+    if (*qtdProdutos >= TAM)
+    {
+        printf("\nLimite de produtos atingido!\n");
+        return;
     }
+
+    int i = *qtdProdutos;
+
+    produtos[i].id = i + 1;
+
+    limparBuffer();
+
+    printf("\nDigite o nome do produto: ");
+    fgets(produtos[i].nome, 20, stdin);
+    produtos[i].nome[strcspn(produtos[i].nome, "\n")] = '\0';
+
+    printf("Digite a quantidade em estoque: ");
+    scanf("%d", &produtos[i].quantidadeInicialEstoque);
+
+    printf("Digite o preco: ");
+    scanf("%f", &produtos[i].preco);
+
+    (*qtdProdutos)++;
+
+    printf("\nProduto cadastrado com sucesso!\nO ID do produto é: %d", produtos[i].id);
+
 }
 
-void excluirProduto(){
-
-    struct Produtos produtos[TAM];
+void excluirProduto(struct Produtos produtos[], int qtdProdutos)
+{
     int idExcluir;
 
     printf("\nDigite o ID do produto que deseja excluir: ");
     scanf("%d", &idExcluir);
 
-    for (int i = 0; i < TAM+1; i++)
+    for (int i = 0; i < qtdProdutos; i++)
     {
-        if (produtos[i].id == idExcluir && produtos[i].id != 0) // VERIFICAR SE JA HOUVE VENDA DO PRODUTO
+        if (produtos[i].id == idExcluir)
         {
             produtos[i].id = 0;
-            printf("\nProduto com ID %d excluido com sucesso.\n", idExcluir);
-        }
-        else 
-        {
-            printf("Produto inexsistente!!");
+
+            printf("\nProduto excluido com sucesso!\n");
+            return;
         }
     }
+
+    printf("\nProduto nao encontrado!\n");
 }
+
+void listarProduto(struct Produtos produtos[], int qtdProdutos)
+{
+    
+}
+
+
