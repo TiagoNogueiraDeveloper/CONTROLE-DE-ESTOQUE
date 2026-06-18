@@ -1,6 +1,6 @@
 # 📦 Sistema de Gestão: Estoque, Vendas e Clientes
 
-Este é um projeto acadêmico desenvolvido em linguagem C para a disciplina de [Nome da Disciplina] do 1º semestre de [Seu Curso]. O objetivo do sistema é gerenciar o fluxo de mercadorias, vendas e clientes de um estabelecimento através do terminal.
+Este é um projeto acadêmico desenvolvido em linguagem C para a disciplina de Introducao a programacao do 1º semestre de Tecnologia em Sistemas para Internet. O objetivo do sistema é gerenciar o fluxo de mercadorias, vendas e clientes de um estabelecimento através do terminal.
 
 ## 🚀 Funcionalidades do Sistema
 
