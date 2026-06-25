@@ -12,25 +12,79 @@
 
 int main(){
 
-    int opcao = menuGeral(); // Chama o menu geral e armazena a opção escolhida pelo usuário
+    int opcao;
 
     struct Produtos produtos[100];
     int qtdProdutos = 0;
+    carregarProdutos(produtos, &qtdProdutos);
 
-    if (opcao == 1)
+do
     {
-        int opProd = menuProdutos();
-        
-        if (opProd == 1) // Chama o menu de produtos se a opção escolhida for 1
+        opcao = menuGeral(); // Chama o menu geral e armazena a opção escolhida pelo usuário
+
+        switch(opcao)
         {
-            incluirProduto(produtos, &qtdProdutos); // Chama a função para incluir um produto se a opção escolhida for 1 no menu de produtos
+            //================== MENU PRODUTOS ==================
+            case 1:
+            {
+                int opProd;
+
+                do
+                {
+                    opProd = menuProdutos();
+
+                    switch(opProd)
+                    {
+                        case 1:
+                            incluirProduto(produtos, &qtdProdutos);
+                            salvarProdutos(produtos, qtdProdutos);
+                            break;
+
+                        case 2:
+                            excluirProduto(produtos, qtdProdutos);
+                            salvarProdutos(produtos, qtdProdutos);
+                            break;
+
+                        case 3:
+                            listarProdutos(produtos, qtdProdutos);
+                            break;
+
+                        case 4:
+                            atualizarEstoque(produtos, qtdProdutos);
+                            salvarProdutos(produtos, qtdProdutos);
+                            break;
+
+                        case 5:
+                            buscarProduto(produtos, qtdProdutos);
+                            break;
+
+                        case 6:
+                            calcularValorEstoque(produtos, qtdProdutos);
+                            break;
+
+                        case 7:
+                            relatorioEstoqueBaixo(produtos, qtdProdutos);
+                            break;
+
+                        case 0:
+                            printf("\nVoltando ao Menu Geral...\n");
+                            salvarProdutos(produtos, qtdProdutos);
+                            break;
+
+                        default:
+                            printf("\nOpcao invalida!\n");
+                    }
+
+                } while(opProd != 0);
+
+                break;
+            }
         }
-        else if (opProd == 2)
-        {
-            excluirProduto(produtos, qtdProdutos); // Chama a função para excluir um produto se a opção escolhida for 2 no menu de produtos
-        }
-    }
-    else if (opcao == 2)
+    }while(opcao != 0);
+
+return 0;   
+}
+    /*if (opcao == 2)
     {
         menuClientes(); // Chama o menu de clientes se a opção escolhida for 2
     }
@@ -48,4 +102,4 @@ int main(){
     }
     
     return 0;
-}
+*/

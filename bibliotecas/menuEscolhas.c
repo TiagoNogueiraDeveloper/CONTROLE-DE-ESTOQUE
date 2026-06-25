@@ -13,14 +13,14 @@ int menuGeral(){
 }
 int menuProdutos(){
     int opcaoProdutos;
-    printf("Menu de Produtos:\n");
+    printf("\n\nMenu de Produtos:\n");
     printf("1. Adicionar Produto\n");
     printf("2. Remover Produto\n");
     printf("3. Listar Produtos\n");
     printf("4. Atualizar Estoque\n");
     printf("5. Buscar Produtos\n");
     printf("6. Calcular Valor do Estoque\n");
-    printf("7. Relatório de Estoque Baixo\n");
+    printf("7. Relatorio de Estoque Baixo\n");
     printf("0. Voltar ao Menu Geral\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcaoProdutos);
