@@ -9,6 +9,7 @@
 #include "bibliotecas/menuEscolhas.c"
 #include "bibliotecas/clientes.c"
 #include "bibliotecas/produtos.c"
+#include "bibliotecas/vendas.c"
 
 int main(){
 
@@ -17,6 +18,14 @@ int main(){
     struct Produtos produtos[100];
     int qtdProdutos = 0;
     carregarProdutos(produtos, &qtdProdutos);
+
+    struct Cliente clientes[100];
+    int qtdClientes = 0;
+    carregarClientes(clientes, &qtdClientes);
+
+    struct Venda vendas[100];
+    int qtdVendas = 0;
+    carregarVendas(vendas, &qtdVendas);
 
 do
     {
@@ -41,7 +50,7 @@ do
                             break;
 
                         case 2:
-                            excluirProduto(produtos, qtdProdutos);
+                            excluirProduto(produtos, &qtdProdutos);
                             salvarProdutos(produtos, qtdProdutos);
                             break;
 
@@ -76,6 +85,80 @@ do
                     }
 
                 } while(opProd != 0);
+
+                break;
+            }
+
+            //================== MENU CLIENTES ==================
+            case 2:
+            {
+                int opCliente;
+
+                do
+                {
+                    opCliente = menuClientes();
+
+                    switch(opCliente)
+                    {
+                        case 1:
+                            incluirCliente(clientes, &qtdClientes);
+                            salvarClientes(clientes, qtdClientes);
+                            break;
+
+                        case 2:
+                            excluirCliente(clientes, &qtdClientes);
+                            salvarClientes(clientes, qtdClientes);
+                            break;
+
+                        case 3:
+                            listarClientes(clientes, qtdClientes);
+                            break;
+
+                        case 0:
+                            printf("\nVoltando ao Menu Geral...\n");
+                            salvarClientes(clientes, qtdClientes);
+                            break;
+
+                        default:
+                            printf("\nOpcao invalida!\n");
+                    }
+
+                } while(opCliente != 0);
+
+                break;
+            }
+
+            //================== MENU VENDAS ==================
+            case 3:
+            {
+                int opVenda;
+
+                do
+                {
+                    opVenda = menuVendas();
+
+                    switch(opVenda)
+                    {
+                        case 1:
+                            incluirVenda(vendas, &qtdVendas, clientes, qtdClientes, produtos, qtdProdutos);
+                            salvarVendas(vendas, qtdVendas);
+                            salvarProdutos(produtos, qtdProdutos);
+                            salvarClientes(clientes, qtdClientes);
+                            break;
+
+                        case 2:
+                            listarVendas(vendas, qtdVendas, clientes, qtdClientes, produtos, qtdProdutos);
+                            break;
+
+                        case 0:
+                            printf("\nVoltando ao Menu Geral...\n");
+                            break;
+
+                        default:
+                            printf("\nOpcao invalida!\n");
+                    }
+
+                } while(opVenda != 0);
 
                 break;
             }

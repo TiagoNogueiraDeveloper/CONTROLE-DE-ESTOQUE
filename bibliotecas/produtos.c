@@ -1,15 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "estruturas.h"
 #define TAM 100
-
-struct Produtos 
-{
-    int id;
-    char nome[20];
-    int quantidadeInicialEstoque;
-    float preco;
-};
 
 //FUNCAO LIMPAR BUFFER
 void limparBuffer() {
