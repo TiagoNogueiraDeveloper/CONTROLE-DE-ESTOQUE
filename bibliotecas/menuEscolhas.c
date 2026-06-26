@@ -29,7 +29,7 @@ int menuProdutos(){
 
 int menuClientes(){
     int opcaoClientes;
-    printf("Menu de Clientes:\n");
+    printf("\n\nMenu de Clientes:\n");
     printf("1. Adicionar Cliente\n");
     printf("2. Remover Cliente\n");
     printf("3. Listar Clientes\n");
@@ -41,7 +41,7 @@ int menuClientes(){
 
 int menuVendas(){
     int opcaoVendas;
-    printf("Menu de Vendas:\n");
+    printf("\n\nMenu de Vendas:\n");
     printf("1. Registrar Venda\n");
     printf("2. Listar Vendas\n");
     printf("0. Voltar ao Menu Geral\n");

@@ -10,7 +10,9 @@ void limparBuffer() {
     while ((c = getchar()) != '\n' && c != EOF) {
         // Limpa o buffer de entrada
     }
-}       
+}   
+
+//Função usada para incluir produto em estoque
 
 void incluirProduto(struct Produtos produtos[], int *qtdProdutos)
 {
@@ -30,23 +32,59 @@ void incluirProduto(struct Produtos produtos[], int *qtdProdutos)
     fgets(produtos[i].nome, 20, stdin);
     produtos[i].nome[strcspn(produtos[i].nome, "\n")] = '\0';
 
-    printf("Digite a quantidade em estoque: ");
-    scanf("%d", &produtos[i].quantidadeInicialEstoque);
+    // Leitura da quantidade
 
-    printf("Digite o preco: ");
-    scanf("%f", &produtos[i].preco);
+    do
+    {
+        printf("Digite a quantidade em estoque: ");
 
-    (*qtdProdutos)++;
+        if (scanf("%d", &produtos[i].quantidadeInicialEstoque) != 1)
+        {
+            printf("\nERRO! Digite apenas numeros inteiros.\n");
+            limparBuffer();
+            continue;
+        }
 
-    printf("\nProduto cadastrado com sucesso!\nO ID do produto eh: %d\n\n", produtos[i].id);
+        if (produtos[i].quantidadeInicialEstoque < 0)
+        {
+            printf("\nERRO! A quantidade nao pode ser negativa.\n");
+            continue;
+        }
 
+    break;
+
+} while (1);
+
+    // Leitura do preco
+    do
+    {
+        printf("Digite o preco: ");
+
+        if (scanf("%f", &produtos[i].preco) != 1)
+        {
+            printf("\nERRO! Digite um valor numerico valido.\n");
+            limparBuffer();
+            continue;
+        }
+
+        if (produtos[i].preco < 0)
+        {
+            printf("\nERRO! O preco nao pode ser negativo.\n");
+            continue;
+        }
+
+    break;
+
+} while (1);
 }
+
+//Função usada para excluir produtos do estoque 
 
 void excluirProduto(struct Produtos produtos[], int *qtdProdutos)
 {
     int idExcluir;
 
-    printf("Digite o ID do produto: ");
+    printf("Digite o ID: ");
     scanf("%d", &idExcluir);
 
     for (int i = 0; i < *qtdProdutos; i++)
@@ -60,13 +98,15 @@ void excluirProduto(struct Produtos produtos[], int *qtdProdutos)
 
             (*qtdProdutos)--;
 
-            printf("Produto excluido com sucesso!\n");
+            printf("Produto excluido!\n");
             return;
         }
     }
 
     printf("Produto nao encontrado!\n");
 }
+
+//Função que lista os produtos já existentes 
 
 void listarProdutos(struct Produtos produtos[], int qtdProdutos)
 {
@@ -86,6 +126,8 @@ void listarProdutos(struct Produtos produtos[], int qtdProdutos)
         printf("Preco: R$ %.2f\n", produtos[i].preco);
     }
 }
+
+//Função que permite atualizar a quantidade de produtos existentes no estoque 
 
 void atualizarEstoque(struct Produtos produtos[], int qtdProdutos)
 {
@@ -132,6 +174,8 @@ void atualizarEstoque(struct Produtos produtos[], int qtdProdutos)
     printf("Produto nao encontrado!\n");
 }
 
+//Função que permite buscar e obter informações de um produto atravez de seu ID
+
 void buscarProduto(struct Produtos produtos[], int qtdProdutos)
 {
     int id;
@@ -156,6 +200,8 @@ void buscarProduto(struct Produtos produtos[], int qtdProdutos)
     printf("Produto nao encontrado!\n");
 }
 
+//Função que calcula valor de total de estoque
+
 void calcularValorEstoque(struct Produtos produtos[], int qtdProdutos)
 {
     float total = 0;
@@ -167,6 +213,8 @@ void calcularValorEstoque(struct Produtos produtos[], int qtdProdutos)
 
     printf("\nValor total do estoque: R$ %.2f\n", total);
 }
+
+//Função que identifica se existem menos de 10 produtos no estoque e comunica ao usuário
 
 void relatorioEstoqueBaixo(struct Produtos produtos[], int qtdProdutos)
 {
@@ -190,7 +238,7 @@ void relatorioEstoqueBaixo(struct Produtos produtos[], int qtdProdutos)
         printf("Nenhum produto com estoque baixo.\n");
 }
 
-//Função para armazenar dados dos produtos
+//Função usada para armazenar dados dos produtos
 
 void salvarProdutos(struct Produtos produtos[], int qtdProdutos)
 {
