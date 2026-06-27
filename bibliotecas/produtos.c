@@ -73,9 +73,10 @@ void incluirProduto(struct Produtos produtos[], int *qtdProdutos)
             continue;
         }
 
-    break;
+        break;
+    } while (1);
 
-} while (1);
+    (*qtdProdutos)++;
 }
 
 //Função usada para excluir produtos do estoque 

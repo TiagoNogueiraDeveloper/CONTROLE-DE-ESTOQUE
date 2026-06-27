@@ -147,6 +147,7 @@ int incluirVenda(struct Venda vendas[], int *qtdVendas, struct Cliente clientes[
 
     // Solicita o CPF do cliente.
     printf("Digite o CPF do cliente: ");
+    limparBufferVendas();
     fgets(cpfEntrada, sizeof(cpfEntrada), stdin);
     cpfEntrada[strcspn(cpfEntrada, "\n")] = '\0';
 
