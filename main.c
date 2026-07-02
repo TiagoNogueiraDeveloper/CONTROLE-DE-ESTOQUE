@@ -167,22 +167,3 @@ do
 
 return 0;   
 }
-    /*if (opcao == 2)
-    {
-        menuClientes(); // Chama o menu de clientes se a opção escolhida for 2
-    }
-    else if (opcao == 3)
-    {
-        menuVendas(); // Chama o menu de vendas se a opção escolhida for 3
-    }
-    else if (opcao == 0)
-    {
-        printf("Saindo do programa...\n"); // Exibe uma mensagem de saída se a opção escolhida for 0
-    }
-    else
-    {
-        printf("Opcao invalida. Por favor, escolha uma opcao valida.\n"); // Exibe uma mensagem de erro se a opção escolhida for inválida
-    }
-    
-    return 0;
-*/
